@@ -11,12 +11,16 @@ namespace PhotonLearning
         [Required] [SerializeField] private GameObject controlPanel = null;
         [Required] [SerializeField] private GameObject connectionPanel = null;
 
+        private bool isConnecting = false;
+
         private const string GameVersion = "1";
 
         private void Awake() => PhotonNetwork.AutomaticallySyncScene = true;
 
         public void Connect()
         {
+            isConnecting = true;
+
             controlPanel.SetActive(false);
             connectionPanel.SetActive(true);
 
@@ -35,7 +39,10 @@ namespace PhotonLearning
         {
             Debug.Log("Connected to Master");
 
-            PhotonNetwork.JoinRandomRoom();
+            if (isConnecting)
+            {
+                PhotonNetwork.JoinRandomRoom();
+            }
         }
 
         public override void OnDisconnected(DisconnectCause cause)
@@ -56,6 +63,11 @@ namespace PhotonLearning
         public override void OnJoinedRoom()
         {
             Debug.Log("Client successfully joined a room");
+
+            if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
+            {
+                PhotonNetwork.LoadLevel("Scene_RoomFor1");
+            }
         }
     }
 }

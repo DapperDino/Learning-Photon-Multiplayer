@@ -123,8 +123,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8080807524728564008, guid: 0c498749f69b6fa42b9e70de7aefa1e6,
         type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8080807524728564008, guid: 0c498749f69b6fa42b9e70de7aefa1e6,
+        type: 3}
       propertyPath: m_Name
       value: Background_Buttons
+      objectReference: {fileID: 0}
+    - target: {fileID: 5138934970885764590, guid: 0c498749f69b6fa42b9e70de7aefa1e6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7783599450544411644, guid: 0c498749f69b6fa42b9e70de7aefa1e6,
         type: 3}
@@ -155,6 +165,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7805270654047575454, guid: 0c498749f69b6fa42b9e70de7aefa1e6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c498749f69b6fa42b9e70de7aefa1e6, type: 3}
