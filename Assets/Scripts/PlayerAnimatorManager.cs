@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using Photon.Pun;
+using UnityEngine;
 
 namespace PhotonLearning
 {
     [RequireComponent(typeof(CharacterController))]
-    public class PlayerAnimatorManager : MonoBehaviour
+    public class PlayerAnimatorManager : MonoBehaviourPun
     {
         [SerializeField] private float directionDampTime = 0.25f;
 
@@ -15,7 +16,12 @@ namespace PhotonLearning
 
         private void Start() => animator = GetComponent<Animator>();
 
-        private void Update() => Move();
+        private void Update()
+        {
+            if (!photonView.IsMine && PhotonNetwork.IsConnected) { return; }
+
+            Move();
+        }
 
         private void Move()
         {
